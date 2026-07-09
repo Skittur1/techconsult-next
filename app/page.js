@@ -316,38 +316,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-background px-margin-mobile py-stack-lg md:px-margin-desktop" id="process">
-          <div className="mx-auto max-w-container-max">
-            <div className="mx-auto mb-16 max-w-2xl text-center">
-              <h2 className="mb-4 font-headline-lg text-headline-lg text-primary">Our Process: How We Do It</h2>
-              <p className="font-body-md text-body-md text-on-surface-variant">
-                We follow a rigorous, data-driven methodology to ensure technical excellence and strategic alignment in every project.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 gap-x-gutter gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-              {processSteps.map((step) => (
-                <div key={step.step} className="flex flex-col items-center text-center">
-                  <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-surface-container-lowest text-secondary shadow-[0_4px_16px_rgba(2,24,41,0.08)]">
-                    <span className="flex h-7 w-7">{processIcons[step.icon]}</span>
-                  </div>
-                  <h3 className="mb-1 font-headline-md text-headline-md text-primary">
-                    {step.step}. {step.title}
-                  </h3>
-                  <span className="mb-3 font-label-sm text-label-sm font-semibold uppercase tracking-wide text-secondary">
-                    {step.duration}
-                  </span>
-                  <p className="max-w-xs font-body-md text-body-md text-on-surface-variant">{step.description}</p>
-                </div>
-              ))}
-            </div>
-            <div className="mt-14 flex justify-center">
-              <Link href="/contact" className="flex items-center gap-2 rounded bg-primary px-8 py-4 font-label-sm text-label-sm font-semibold uppercase text-on-primary shadow-md transition-all duration-300 hover:bg-surface-tint">
-                Get Started
-                <Icon className="h-4 w-4" name="arrow_forward" />
-              </Link>
-            </div>
-          </div>
-        </section>
+      
 
        <section className="overflow-hidden bg-background px-margin-mobile py-stack-lg md:px-margin-desktop" id="solutions">
           <div className="mx-auto flex max-w-container-max flex-col items-center gap-12 lg:flex-row lg:gap-24">
