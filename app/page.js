@@ -1,9 +1,20 @@
 import Link from "next/link";
 import SiteShell from "./components/SiteShell";
 import Icon from "./components/Icon";
+import ScrollableServices from "./components/ScrollableServices";
 import {siteConfig} from "./siteconfige";
 
 const services = [
+  {
+    title: "Web Development",
+    description: "Modern, fast, and scalable web applications using Angular, React, and Next.js with responsive UI, SEO optimization, and enterprise-grade performance.",
+    icon: "/servicesicon/web.svg",
+  },
+  {
+    title: "Mobile App Development",
+    description: "Native Android & iOS applications with intuitive UI/UX, high performance, secure APIs, push notifications, and seamless cross-platform experiences.",
+    icon: "/servicesicon/android.svg",
+  },
   {
     title: "Cloud Computing",
     description: "Scalable cloud migrations, multi-cloud architecture, and optimized resource management for continuous agility.",
@@ -24,6 +35,46 @@ const services = [
     description: "Robust network design, server virtualization, and disaster recovery planning for foundational stability.",
     icon: "dns",
   },
+  // {
+  //   title: "Data Analytics & BI",
+  //   description: "Transform raw data into actionable insights with advanced analytics, real-time dashboards, and AI-powered business intelligence solutions.",
+  //   icon: "analytics",
+  // },
+  // {
+  //   title: "DevOps & Automation",
+  //   description: "Streamline your development pipeline with CI/CD automation, container orchestration, and infrastructure as code for faster, reliable deployments.",
+  //   icon: "settings_applications",
+  // },
+  // {
+  //   title: "AI & Machine Learning",
+  //   description: "Leverage cutting-edge AI and ML models to automate processes, enhance decision-making, and unlock new revenue streams for your business.",
+  //   icon: "psychology",
+  // },
+  // {
+  //   title: "Network Security",
+  //   description: "Comprehensive network protection including firewalls, intrusion detection, VPNs, and advanced threat prevention to safeguard your digital assets.",
+  //   icon: "wifi_protected_setup",
+  // },
+  // {
+  //   title: "Digital Transformation",
+  //   description: "Strategic guidance to modernize legacy systems, adopt emerging technologies, and drive innovation across your entire organization.",
+  //   icon: "transform",
+  // },
+  // {
+  //   title: "IT Strategy Consulting",
+  //   description: "Expert advisory services aligning technology investments with business goals, including roadmap planning, vendor selection, and ROI optimization.",
+  //   icon: "insights",
+  // },
+  // {
+  //   title: "Cloud Native Development",
+  //   description: "Build and deploy microservices-based applications designed specifically for cloud environments with maximum scalability and resilience.",
+  //   icon: "cloud_queue",
+  // },
+  // {
+  //   title: "Compliance & Governance",
+  //   description: "Ensure regulatory compliance with GDPR, HIPAA, SOC2, and industry standards through comprehensive security frameworks and auditing processes.",
+  //   icon: "gavel",
+  // },
 ];
 
 const testimonials = [
@@ -98,88 +149,90 @@ export default function Home() {
               <h2 className="mb-4 font-headline-lg text-headline-lg text-primary">Architectural Solutions</h2>
               <p className="font-body-md text-body-md text-on-surface-variant">We engineer resilient infrastructure and provide strategic guidance to optimize your technology investments.</p>
             </div>
-            <div className="grid grid-cols-1 gap-gutter md:grid-cols-2 lg:grid-cols-4">
-              {services.map((service) => (
-                <div key={service.title} className="level-1-shadow-hover group flex h-full flex-col justify-between rounded-xl border border-surface-variant bg-surface-bright p-8">
-                  <div>
-                    <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg bg-surface-container-low text-secondary transition-colors duration-300 group-hover:bg-secondary group-hover:text-on-secondary">
-                      <Icon className="h-7 w-7" name={service.icon} />
-                    </div>
-                    <h3 className="mb-3 font-headline-md text-headline-md text-primary">{service.title}</h3>
-                    <p className="mb-6 flex-grow font-body-md text-body-md text-on-surface-variant">{service.description}</p>
-                  </div>
-                  <Link href="/contact" className="mt-auto inline-flex items-center text-secondary font-label-sm text-label-sm font-semibold">
-                    Explore Service <Icon className="ml-1 h-4 w-4" name="arrow_right_alt" />
-                  </Link>
-                </div>
-              ))}
-            </div>
+            
+            {/* Horizontal scrollable services */}
+            <ScrollableServices services={services} />
           </div>
         </section>
 
        <section className="overflow-hidden bg-background px-margin-mobile py-stack-lg md:px-margin-desktop" id="solutions">
-  <div className="mx-auto flex max-w-container-max flex-col items-center gap-12 lg:flex-row lg:gap-24">
-    <div className="relative w-full lg:w-1/2">
-      <div className="absolute inset-0 -z-10 scale-105 -rotate-3 rounded-2xl bg-gradient-to-tr from-surface-variant to-transparent" />
-      <div className="relative aspect-video overflow-hidden rounded-2xl level-1-shadow lg:aspect-[4/3]">
-        <img 
-          alt="Software development and coding visualization" 
-          className="h-full w-full object-cover" 
-          src="../images/strategy-scene.jpg" 
-        />
-      </div>
-    </div>
-    <div className="flex w-full flex-col items-start space-y-6 lg:w-1/2">
-      <div className="inline-flex items-center gap-2 rounded-full bg-surface-container px-3 py-1 font-label-sm text-label-sm text-on-secondary-container">
-        <Icon className="h-4 w-4" name="code" /> Development & Engineering
-      </div>
-      <h2 className="font-headline-lg text-headline-lg text-primary">Custom Software <br />Development Solutions</h2>
-      <p className="font-body-lg text-body-lg text-on-surface-variant">
-        We build robust, scalable, and high-performance software solutions tailored to your business needs. Our expert development team leverages modern technologies and agile methodologies to deliver enterprise-grade applications that drive innovation and growth.
-      </p>
-      <ul className="mt-4 w-full space-y-4">
-        <li className="flex items-start gap-3">
-          <Icon className="mt-1 h-5 w-5 text-secondary" name="check_circle" />
-          <div>
-            <h1 className="m-0 font-headline-mg  text-primary">Agile Development</h1>
-            <p className="font-body-md text-sm text-on-surface-variant">Iterative development with continuous delivery and rapid deployment cycles.</p>
+          <div className="mx-auto flex max-w-container-max flex-col items-center gap-12 lg:flex-row lg:gap-24">
+            <div 
+              className="relative w-full lg:w-1/2 transition-all duration-700"
+              style={{
+                animation: 'fadeInLeft 0.8s ease-out forwards',
+                opacity: 0,
+                transform: 'translateX(-50px)'
+              }}
+            >
+              <div className="absolute inset-0 -z-10 scale-105 -rotate-3 rounded-2xl bg-gradient-to-tr from-surface-variant to-transparent" />
+              <div className="relative aspect-video overflow-hidden rounded-2xl level-1-shadow lg:aspect-[4/3]">
+                <img 
+                  alt="Software development and coding visualization" 
+                  className="h-full w-full object-cover" 
+                  src="../images/strategy-scene.jpg" 
+                />
+              </div>
+            </div>
+            <div 
+              className="flex w-full flex-col items-start space-y-6 lg:w-1/2 transition-all duration-700"
+              style={{
+                animation: 'fadeInRight 0.8s ease-out forwards',
+                opacity: 0,
+                transform: 'translateX(50px)'
+              }}
+            >
+              <div className="inline-flex items-center gap-2 rounded-full bg-surface-container px-3 py-1 font-label-sm text-label-sm text-on-secondary-container">
+                <Icon className="h-4 w-4" name="code" /> Development & Engineering
+              </div>
+              <h2 className="font-headline-lg text-headline-lg text-primary">Custom Software <br />Development Solutions</h2>
+              <p className="font-body-lg text-body-lg text-on-surface-variant">
+                We build robust, scalable, and high-performance software solutions tailored to your business needs. Our expert development team leverages modern technologies and agile methodologies to deliver enterprise-grade applications that drive innovation and growth.
+              </p>
+              <ul className="mt-4 w-full space-y-4">
+                <li className="flex items-start gap-3 group hover:translate-x-2 transition-transform duration-300">
+                  <Icon className="mt-1 h-5 w-5 text-secondary" name="check_circle" />
+                  <div>
+                    <h1 className="m-0 font-headline-mg  text-primary">Agile Development</h1>
+                    <p className="font-body-md text-sm text-on-surface-variant">Iterative development with continuous delivery and rapid deployment cycles.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3 group hover:translate-x-2 transition-transform duration-300">
+                  <Icon className="mt-1 h-5 w-5 text-secondary" name="check_circle" />
+                  <div>
+                    <h4 className="m-0 font-headline-mg  text-primary">Modern Tech Stack</h4>
+                    <p className="font-body-md text-sm text-on-surface-variant">Building with cutting-edge frameworks, microservices, and cloud-native architectures.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3 group hover:translate-x-2 transition-transform duration-300">
+                  <Icon className="mt-1 h-5 w-5 text-secondary" name="check_circle" />
+                  <div>
+                    <h4 className="m-0 font-headline-mg  text-primary">Full-Stack Expertise</h4>
+                    <p className="font-body-md text-sm text-on-surface-variant">End-to-end development from frontend UI to backend systems and database design.</p>
+                  </div>
+                </li>
+              </ul>
+              <Link href="/development" className="mt-4 rounded border-2 border-secondary px-6 py-3 font-label-sm text-label-sm font-semibold uppercase text-secondary transition-all duration-300 hover:bg-secondary hover:text-on-secondary transform hover:scale-105">
+                Explore Development Services
+              </Link>
+            </div>
           </div>
-        </li>
-        <li className="flex items-start gap-3">
-          <Icon className="mt-1 h-5 w-5 text-secondary" name="check_circle" />
-          <div>
-            <h4 className="m-0 font-headline-mg  text-primary">Modern Tech Stack</h4>
-            <p className="font-body-md text-sm text-on-surface-variant">Building with cutting-edge frameworks, microservices, and cloud-native architectures.</p>
-          </div>
-        </li>
-        <li className="flex items-start gap-3">
-          <Icon className="mt-1 h-5 w-5 text-secondary" name="check_circle" />
-          <div>
-            <h4 className="m-0 font-headline-mg  text-primary">Full-Stack Expertise</h4>
-            <p className="font-body-md text-sm text-on-surface-variant">End-to-end development from frontend UI to backend systems and database design.</p>
-          </div>
-        </li>
-      </ul>
-      <Link href="/development" className="mt-4 rounded border-2 border-secondary px-6 py-3 font-label-sm text-label-sm font-semibold uppercase text-secondary transition-all duration-300 hover:bg-secondary hover:text-on-secondary">
-        Explore Development Services
-      </Link>
-    </div>
-  </div>
-</section>
+        </section>
+
         <section className="bg-primary-container py-stack-md text-on-primary-container">
           <div className="mx-auto max-w-container-max px-margin-mobile py-12 md:px-margin-desktop">
             <div className="grid grid-cols-1 gap-12 divide-y md:grid-cols-3 md:divide-x md:divide-y-0 divide-outline/30">
-              <div className="flex flex-col items-center px-4 pt-6 text-center md:pt-0">
+              <div className="flex flex-col items-center px-4 pt-6 text-center md:pt-0 transform transition-transform duration-500 hover:scale-105">
                 <span className="mb-2 font-display-lg text-white md:text-[4rem]">500+</span>
                 <span className="font-label-sm text-label-sm uppercase tracking-widest text-secondary-container">Projects Completed</span>
                 <p className="mt-3 max-w-xs font-body-md text-sm leading-6 opacity-80">Delivering complex enterprise architectures across global sectors.</p>
               </div>
-              <div className="flex flex-col items-center px-4 pt-6 text-center md:pt-0">
+              <div className="flex flex-col items-center px-4 pt-6 text-center md:pt-0 transform transition-transform duration-500 hover:scale-105">
                 <span className="mb-2 font-display-lg text-white md:text-[4rem]">98%</span>
                 <span className="font-label-sm text-label-sm uppercase tracking-widest text-secondary-container">Client Retention</span>
                 <p className="mt-3 max-w-xs font-body-md text-sm leading-6 opacity-80">Building long-term partnerships through consistent reliability.</p>
               </div>
-              <div className="flex flex-col items-center px-4 pt-6 text-center md:pt-0">
+              <div className="flex flex-col items-center px-4 pt-6 text-center md:pt-0 transform transition-transform duration-500 hover:scale-105">
                 <span className="mb-2 font-display-lg text-white md:text-[4rem]">24/7</span>
                 <span className="font-label-sm text-label-sm uppercase tracking-widest text-secondary-container">Expert Support</span>
                 <p className="mt-3 max-w-xs font-body-md text-sm leading-6 opacity-80">Uninterrupted technical assistance whenever you need it.</p>
@@ -195,8 +248,16 @@ export default function Home() {
               <p className="font-body-md text-body-md text-on-surface-variant">Hear how we've engineered success for our partners.</p>
             </div>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-              {testimonials.map((item) => (
-                <div key={item.name} className="relative rounded-xl border border-surface-variant bg-surface-bright p-8 level-1-shadow">
+              {testimonials.map((item, index) => (
+                <div 
+                  key={item.name} 
+                  className="relative rounded-xl border border-surface-variant bg-surface-bright p-8 level-1-shadow transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl"
+                  style={{
+                    animation: `fadeInUp 0.6s ease-out ${index * 0.2 + 0.3}s forwards`,
+                    opacity: 0,
+                    transform: 'translateY(20px)'
+                  }}
+                >
                   <Icon className="absolute right-4 top-4 h-16 w-16 text-surface-dim opacity-50" name="format_quote" />
                   <p className="relative z-10 mb-8 font-body-lg text-body-lg text-on-surface">{item.quote}</p>
                   <div className="flex items-center gap-4">
@@ -215,8 +276,8 @@ export default function Home() {
         </section>
 
         <section className="border-t border-outline-variant/30 bg-surface-container-low px-margin-mobile py-stack-lg md:px-margin-desktop" id="contact">
-          <div className="mx-auto max-w-4xl rounded-2xl border border-surface-variant bg-white p-12 text-center level-1-shadow md:p-16">
-            <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-surface-container-low text-secondary">
+          <div className="mx-auto max-w-4xl rounded-2xl border border-surface-variant bg-white p-12 text-center level-1-shadow md:p-16 transition-all duration-500 hover:shadow-2xl">
+            <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-surface-container-low text-secondary animate-bounce">
               <Icon className="h-8 w-8" name="rocket_launch" />
             </div>
             <h2 className="mb-4 font-headline-lg text-headline-lg text-primary">Ready to Elevate Your Business Technology?</h2>
@@ -226,7 +287,7 @@ export default function Home() {
                 <label className="mb-1 block font-label-sm text-label-sm text-on-surface-variant" htmlFor="work-email">Work Email</label>
                 <input className="w-full rounded border border-outline-variant bg-surface-bright px-4 py-3 font-body-md text-body-md outline-none transition-shadow focus:border-secondary focus:ring-2 focus:ring-secondary" id="work-email" placeholder="name@company.com" required type="email" />
               </div>
-              <button className="mt-2 w-full rounded bg-secondary px-8 py-4 font-label-sm text-label-sm font-semibold uppercase text-on-secondary shadow-md transition-colors duration-300 hover:bg-on-secondary-container" type="button">
+              <button className="mt-2 w-full rounded bg-secondary px-8 py-4 font-label-sm text-label-sm font-semibold uppercase text-on-secondary shadow-md transition-all duration-300 hover:bg-on-secondary-container transform hover:scale-105" type="button">
                 Book a Free Consultation
               </button>
               <p className="mt-2 font-body-md text-xs text-outline">No commitment required. Secure and confidential.</p>
@@ -234,6 +295,44 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      {/* Global styles for animations */}
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          @keyframes fadeInUp {
+            from {
+              opacity: 0;
+              transform: translateY(30px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+          
+          @keyframes fadeInLeft {
+            from {
+              opacity: 0;
+              transform: translateX(-50px);
+            }
+            to {
+              opacity: 1;
+              transform: translateX(0);
+            }
+          }
+          
+          @keyframes fadeInRight {
+            from {
+              opacity: 0;
+              transform: translateX(50px);
+            }
+            to {
+              opacity: 1;
+              transform: translateX(0);
+            }
+          }
+        `
+      }} />
     </SiteShell>
   );
 }
