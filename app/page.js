@@ -411,7 +411,7 @@ export default function Home() {
               <p className="font-body-md text-body-md text-on-surface-variant">See how our clients rate us across every service we deliver.</p>
             </div>
             <div
-              className="-mx-margin-mobile flex snap-x snap-mandatory gap-6 overflow-x-auto overflow-y-hidden px-margin-mobile pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:-mx-margin-desktop md:px-margin-desktop"
+              className="-mx-margin-mobile flex snap-x snap-mandatory gap-6 overflow-x-auto overflow-y-hidden px-margin-mobile pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:-mx-margin-desktop md:px-margin-desktop pt-6"
             >
               {clientRatings.map((item) => (
                 <div
