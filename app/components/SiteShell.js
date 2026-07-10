@@ -203,7 +203,7 @@ export default function SiteShell({ children, activeNav }) {
     <span className="material-symbols-outlined text-sm">Phone</span>
     <a 
       className="transition-colors duration-200 hover:text-white" 
-      href={`tel:${siteConfig.contact.phoneFormatted}`}
+      href={`tel:${siteConfig.contact.phone}`}
     >
       {siteConfig.contact.phone}
     </a>
